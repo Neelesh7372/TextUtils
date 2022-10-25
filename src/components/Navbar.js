@@ -23,7 +23,7 @@ export default function Navbar(props) {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
-            <Link className="nav-link active" aria-current="page" to="/">
+            <Link className="nav-link" onClick={() => this.setState({isActive: !this.state.isActive})} aria-current="page" to="/">
               Home
             </Link>
           </li>
@@ -45,15 +45,11 @@ export default function Navbar(props) {
           </button>
         </form>
         <div className={`form-check form-switch text-${props.mode === 'light'?'dark':'light'} mx-2`}>
-             <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+             <input className="form-check-input" onClick={props.toggleMode} style={{cursor:'pointer'}} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
              <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{props.mode === 'light'?'Enable Dark Mode':'Enable Light Mode'}</label>
         </div>
-        <div className={`form-check form-switch text-${props.greymode === 'light'?'secondary':'light'} mx-2`}>
-             <input className="form-check-input" onClick={props.toggleGreyMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
-             <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{props.greymode === 'light'?'Enable Grey Mode':'Enable Light Mode'}</label>
         </div>
       </div>
-    </div>
   </nav>
   )
 }
